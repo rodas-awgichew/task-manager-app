@@ -1,30 +1,46 @@
-import React, { useReducer } from 'react';
+import { useRef, useState, useEffect } from "react";
+import { useTasks } from "../context/TaskContext";
 
-const taskReducer = (state, action) => {
-    switch (action.type) {
-        case 'SET_TASK':
-            return action.payload;
-        case 'CLEAR_TASK':
-            return '';
-        default:
-            return state; // Return the current state as the default case
-    }
-};
+export default function TaskInput() {
+  const { dispatch } = useTasks();
+  const [input, setInput] = useState("");
+  const inputRef = useRef(null);
 
-const TaskInput = () => {
-    const [task, dispatch] = useReducer(taskReducer, '');
+  
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
 
-    return (
-        <div>
-            <input
-                type="text"
-                onChange={(e) => dispatch({ type: 'SET_TASK', payload: e.target.value })}
-                value={task} // Correctly bind the task variable
-            />
-            <button onClick={(e) => dispatch({ type: 'SET_TASK'})}>Add Task</button>
-            <button onClick={() => dispatch({ type: 'CLEAR_TASK' })}>Clear Task</button>
-        </div>
-    );
-};
+  const addTask = () => {
+    if (!input.trim()) return;
+    dispatch({ type: "ADD_TASK", payload: input });
+    setInput("");
+    inputRef.current.focus();
+  };
+  const ClearTask = () => {
+    setInput("");
+    inputRef.current.focus();
+  }
 
-export default TaskInput;
+  return (
+    <div >
+      <input
+        ref={inputRef}
+        type="text"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        placeholder="Enter a new task..."
+      />
+      <button onClick={addTask}>
+        Add Task
+      </button>
+      <button onClick={ClearTask}>
+        clear Task
+      </button>
+    </div>
+  );
+}
+
+
+
+
