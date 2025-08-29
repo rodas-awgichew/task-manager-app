@@ -5,6 +5,18 @@ export default function TaskList() {
   const { tasks, dispatch } = useTasks();
 
 
+  // Highlight tasks after 5s if not interacted
+  useEffect(() => {
+    const timers = tasks.map((task) =>
+      setTimeout(() => {
+        if (!task.done) {
+          dispatch({ type: "HIGHLIGHT_TASK", payload: task.id });
+        }
+      }, 5000)
+    );
+
+    return () => timers.forEach((t) => clearTimeout(t));
+  }, [tasks, dispatch]);
   if (tasks.length === 0) {
     return <p className="text-gray-500">No tasks yet. Add one above.</p>;
   }
