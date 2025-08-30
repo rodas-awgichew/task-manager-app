@@ -29,13 +29,13 @@ export default function TaskList() {
         <li key={task.id}>
           <span>{task.text}</span>
 
-          <div className="space-x-2">
+          <div >
             <button
               onClick={() => dispatch({ type: "TOGGLE_TASK", payload: task.id })}
             >
               {task.done ? "Undo" : "Done"}
             </button>
-            
+
             <button
               onClick={() => dispatch({ type: "DELETE_TASK", payload: task.id })}
             >
