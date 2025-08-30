@@ -6,7 +6,7 @@ export default function TaskStats() {
   const pending = tasks.length - completed;
 
   return (
-    <div >
+    <div  className="task-stats">
       <p >✅ Completed: {completed}</p>
       <p >⏳ Pending: {pending}</p>
     </div>

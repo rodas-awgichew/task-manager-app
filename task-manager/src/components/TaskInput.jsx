@@ -23,7 +23,7 @@ export default function TaskInput() {
   }
 
   return (
-    <div >
+    <div className="input-row" >
       <input
         ref={inputRef}
         type="text"

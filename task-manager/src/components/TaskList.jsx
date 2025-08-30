@@ -26,18 +26,21 @@ export default function TaskList() {
   return (
     <ul >
       {tasks.map((task) => (
-        <li key={task.id}>
+        <li 
+        key={task.id} 
+        className={`task-item ${task.done ? "done" : ""} ${task.highlighted && !task.done ? "highlighted" : ""}`}
+      >
           <span>{task.text}</span>
 
           <div >
-            <button
-              onClick={() => dispatch({ type: "TOGGLE_TASK", payload: task.id })}
+            <button 
+            className="btn btn-primary" onClick={() => dispatch({ type: "TOGGLE_TASK", payload: task.id })}
             >
               {task.done ? "Undo" : "Done"}
             </button>
 
             <button
-              onClick={() => dispatch({ type: "DELETE_TASK", payload: task.id })}
+              className="btn btn-danger" onClick={() => dispatch({ type: "DELETE_TASK", payload: task.id })}
             >
               Delete
             </button>
