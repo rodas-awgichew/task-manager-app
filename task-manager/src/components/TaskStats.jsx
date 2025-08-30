@@ -6,9 +6,9 @@ export default function TaskStats() {
   const pending = tasks.length - completed;
 
   return (
-    <div className="mt-4 flex gap-4">
-      <p className="font-medium">✅ Completed: {completed}</p>
-      <p className="font-medium">⏳ Pending: {pending}</p>
+    <div >
+      <p >✅ Completed: {completed}</p>
+      <p >⏳ Pending: {pending}</p>
     </div>
   );
 }
