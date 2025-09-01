@@ -12,10 +12,13 @@ export default function TaskInput() {
   }, []);
 
   const addTask = () => {
-    if (!input.trim()) return;
+    if (!input.trim()) 
+    return ;
     dispatch({ type: "ADD_TASK", payload: input });
     setInput("");
     inputRef.current.focus();
+    
+
   };
   const ClearTask = () => {
     setInput("");
