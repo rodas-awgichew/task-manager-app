@@ -49,7 +49,7 @@ body {
   border-radius: 4px;
   cursor: pointer;
   font-size: 14px;
-  transition: background 0.2s;
+  transition: background 0.2s ease;
 }
 
 .btn-primary {
@@ -109,8 +109,12 @@ body {
 
 /* Stats row */
 .task-stats {
+  margin-top: 15px;
   display: flex;
   justify-content: space-between;
-  margin-top: 15px;
   font-weight: bold;
+}
+
+.task-stats p {
+  margin: 0;
 }
