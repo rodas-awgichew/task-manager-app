@@ -52,34 +52,6 @@ src/
 
 ---
 
-## ⚙️ Installation & Setup
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/your-username/task-manager.git
-   cd task-manager
-   ```
-
-2. Install dependencies:
-
-   ```bash
-   npm install
-   ```
-
-3. Start development server:
-
-   ```bash
-   npm run dev
-   ```
-
-4. Open your browser at:
-
-   ```
-   http://localhost:5173/
-   ```
-
----
 
 ## 📸 Demo (Example Layout)
 
